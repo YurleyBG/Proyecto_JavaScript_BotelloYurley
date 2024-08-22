@@ -584,7 +584,7 @@ while(hola==true){
                             console.log("1. aula1")
                             listaaula.push("aula1")
                         }
-                        if (salon2<49){
+                        if (salon2<4){
                             console.log("2. aula2")
                             listaaula.push("aula2")
                         }   
@@ -606,27 +606,29 @@ while(hola==true){
                                                                                         "programacion formal":num1,
                                                                                         "bases de datos":[num2,num3],
                                                                                         "backend":[num4,num5]}, "nombres":nuevonombre,"fecha de inicio":fechaI,"fecha de finalizacion":fechaF,"salon de entrenamiento":escoje, "grupo":[]})
-                                    let cambio=prompt("SE HA CREADO LA RUTA CON EXITO \n crear otra ruta: (si) volver al menu: preciona enter")
-                                    if (cambio!="si"){
-                                        yo=false
-                                    }
-                                    else{
-                                        console.log("ya se alcanzó el maximo de rutas que se pueden crear")
-                                        yo=false
-                                    }
-                                
+                                }                                                       
+                        let cambio=prompt("SE HA CREADO LA RUTA CON EXITO \n crear otra ruta: (si) volver al menu:(no)")
+                        if (cambio=="si"){
+                            yo=true
+                        }
+                        if(cambio=="no"){
+                            menucoordinador()
+                            hola=true
+                            
+                        
+                        } 
                     
-                }
-                                else{
-                                    console.log("esta aula no esta disponible o lo escribiste mal")
-                                }
-                            }   menucoordinador() 
-                                yuju=false
-                                yo=false 
-                                esoo=true
+    
+                               
+
+                            }   
+                    
+                               
+                        }
+                                
                             
                            
-                        }
+                        
                        
                          
                     }
@@ -641,15 +643,21 @@ while(hola==true){
                 ole=true
                 while (ole==true){
                     for (i in Jsoninfo[0]["trainers"]){
-                        if (i["ruta"].length<4){
-                            console.log("")
-                            console.log("--------------------------------")
-                            console.log("id:  ", i["id"])
-                            console.log("nombre: ", i["nombre"])
-                            console.log("apellido", i["apellido"])
-                            console.log("--------------------------------")
-                            console.log("")
+                        for(const n of i["ruta"]){
+                            for(let k=0; k < n.length; k++){
+                                if (k<4){
+                                    console.log("")
+                                    console.log("--------------------------------")
+                                    console.log("id:  ", i["id"])
+                                    console.log("nombre: ", i["nombre"])
+                                    console.log("apellido", i["apellido"])
+                                    console.log("--------------------------------")
+                                    console.log("")
+                                }
+                            }
                         }
+                        
+                        
                         
                     }
                        
@@ -686,6 +694,7 @@ while(hola==true){
                                 
                         }
                     } 
+                    for(let h = 0; h < listarutas.length; h++){
                         if (listarutas.length>0){
                             for(x in Jsoninfo[0]["trainers"]){
                                 if (x["id"]==seleccion){
@@ -693,34 +702,35 @@ while(hola==true){
                                     while(piece==true){
                                         son=0
                                         qwerty=prompt("escoje una ruta:  ")
-                                        for( m in listarutas.length){
+                                        for(let m = 0; m < listarutas.length; m++){
                                             if (listarutas[m]==qwerty){
                                                 son=1
                                                 piece=false
                                             }
-                                                
                                             if (son==0){
                                                 console.log("esta ruta no esta disponible")
                                                 console.log("ingresa una ruta de las que se mostraron")
                                             }
                                                 
                                         }
-                                           
-                                    
-                                    for( l in listarutas.length)
+                                            
+                                    }
+                                    for( let l = 0; l < listarutas.length; l++){
                                         listarutas.pop(l) 
                                     }
                                     x["ruta"].push(qwerty)
-                                        console.log("ruta agregada con exito")
-                                        let pregun=prompt("quieres hacer otro cambio (si)\n si no quieres preciona enter\n")
-                                        if(pregun!="si"){
-                                            ole=False
-                                        }
+                                    console.log("ruta agregada con exito")
+                                    let pregun=prompt("quieres hacer otro cambio (si)\n si no quieres preciona enter\n")
+                                    if(pregun!="si"){
+                                        ole=False
+                                    }
                                         
                                 }
                                     
                             }
                         }
+                    }
+                    
                             
                                 
                 }
