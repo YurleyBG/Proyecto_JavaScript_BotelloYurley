@@ -411,9 +411,7 @@ while(hola==true){
                                     console.log(l["ruta"])
                                     grups.push(l["nombres"])
                                 }
-
                             }
-                        
                             let pregunta2=prompt("ingresa el nombre del grupo que tiene la ruta que deseas:")
                             for(const d of Jsoninfo[0]["grupos"]){
                                 if(pregunta2==d["nombres"]){
@@ -421,21 +419,12 @@ while(hola==true){
                                     console.log("se han aplicado los cambios")
                                     esoo=true
                                     break
-                                }
-
-                                    
+                                }  
                                 if(pregunta2!=d["nombres"]){
                                     console.log("este grupo no existe (o escribe bien el nombre)")
-                                    
                                 }
-                                
                             }
-                        
-                                  
-                            
-                            
-                        } 
-
+                        }
                         else{
                             console.log("Este estudiante no aprobo")
                         }  
@@ -448,13 +437,295 @@ while(hola==true){
             }
             if(opci.toLowerCase()==4){
                 console.clear()
+                console.log(":::::::::: CREAR RUTAS ACADEMICAS CON LOS MODULOS ::::::::::::::");
                 console.log("")
-                console.log("4 crear rutas academicas con los modulos");
-            };
+                yo=true
+                while (yo==true){
+                    let rutas=[]
+                    xd=0
+                    for( const i of  Jsoninfo[0]["grupos"]){
+                        for( const x in i["ruta"].length){
+                            xd=x
+                        }
+                    rutas.push(i["ruta"])
+                    if(xd<12){
+                        ace=true
+                        rutaa=[]
+                        while (ace==true){
+                            let ruta=prompt("ingresa el nombre de la nueva ruta")
+                            if (ruta!=rutas){
+                                rutaa.push(ruta)
+                                ace=false
+
+                            } 
+                            else{
+                                console.log("este nombre no está disponible ingresa uno valido")
+                            }     
+                        }
+                        for( let i = 0; i < rutas.length; i++){
+                            rutas.pop(i)
+                        }
+                        uno=true
+                        while (uno==true){
+                            console.log("escoje una opcion para programacin formal")
+                            modulo1=parseInt(prompt("1.Java  2.JavaScript  3.C#)\n"))
+                            if (modulo1==1){
+                                num1="Java"
+                                uno=false
+                            }
+                                
+                            if (modulo1==2){ 
+                                num1="JavaScrip"
+                                uno=false
+                            }
+                                
+                            if (modulo1==3){
+                                num1="C#"
+                                uno=false
+                            }
+                        } 
+                        dos=true
+                        while (dos==true){
+                            console.log("escoje el modulo principal para bases de datos")
+                            modulo21=parseInt(prompt("1.Mysql  2.MongoDB  3.PostGresql)"))
+                            if (modulo21==1){
+                                num2="Mysql"
+                                dos=false
+                            }
+                            if (modulo21==2){
+                                num2="MongoDB"
+                                dos=false
+                            }
+                            if (modulo21==3){
+                                num2="PostGresql"
+                                dos=false
+                            }
+                        }
+                        tres=true
+                        while (tres==true){
+                            console.log("escoje el modulo secundario para bases de datos")
+                        
+                            modulo22=parseInt(prompt("1.Mysql  2.MongoDB  3.PostGresql"))
+                            if (modulo22==1){
+                                num3="Mysql"
+                                tres=false
+                            }
+                            if (modulo22==2){
+                                num3="MongoDB"
+                                tres=false
+                            }
+                            if (modulo22==3){
+                                num3="PostGresql"
+                                tres=false
+                            }
+                        }
+                        cuatro=true
+                        while (cuatro==true){
+                            console.log("escoje el modulo principal para BACKEND")
+                            modulo31=parseInt(prompt("1.NetCore  2.Spring Boot  3.NodeJS  4.Expres\n"))
+                            if (modulo31==1){
+                                num4="NetCore"
+                                cuatro=false
+                            }
+                            if (modulo31==2){
+                                num4="Spring Boot"
+                                cuatro=false
+                            }
+                            if (modulo31==3){
+                                num4="NodeJS"
+                                cuatro=false
+                            }
+                            if (modulo31==4){
+                                num4="Expres"
+                                cuatro=false
+                            }
+                        }
+                        cinco=true
+                        while (cinco==true){
+                            console.log("escoje el modulo secundario para BACKEND")
+                            modulo32=parseInt(prompt("1.NetCore  2.Spring Boot  3.NodeJS  4.Expres"))
+                            if (modulo32==1){
+                                num5="NetCore"
+                                cinco=false
+                            }
+                            if (modulo32==2){
+                                num5="Spring Boot"
+                                cinco=false
+                            }
+                            if (modulo32==3){
+                                num5="NodeJS"
+                                cinco=false
+                            }
+                            if (modulo32==4){
+                                num5="Expres"
+                                cinco=false
+                            }
+                        }
+                        let listasalones=[]
+                        for( const p in Jsoninfo[0]["grupos"]){
+                            listasalones.push(p["salon de entrenamiento"])
+                        } 
+                        let salon1=0
+                        let salon2=0
+                        let salon3=0
+                        for( let h = 0; h < listasalones.length; h++){
+                            if (listasalones[h]=="aula1"){ 
+                                salon1=salon1+1
+                            } 
+                            if (listasalones[h]=="aula2"){
+                                salon2=salon2+1
+                            } 
+                            if (listasalones[h]=="aula3"){
+                                salon3=salon3+1
+                            }
+                        }
+                        listaaula=[]
+                        if (salon1<4){
+                            console.log("1. aula1")
+                            listaaula.push("aula1")
+                        }
+                        if (salon2<49){
+                            console.log("2. aula2")
+                            listaaula.push("aula2")
+                        }   
+                        if (salon3<4){
+                            console.log("3. aula3")
+                            listaaula.push("aula3")
+                        }
+                        rutaas=rutaa
+                        yuju=true
+                        while (yuju==true){
+                            let escoje=parseInt(prompt("escoje un salon de entranamiento de los que acabo de mostrar\n"))
+                            for(let h = 1; h < listasalones.length; h++){
+                                if (h==escoje){
+                                    let fechaI=prompt("ingresa la fecha de INICIO DD-MM-AA\n")
+                                    let fechaF=prompt("ingresa la fecha de FINALIZACIÓN DD-MM-AA\n")
+                                    let nuevonombre=prompt("ingresa el nombre del nuevo grupo\n")
+                                    Jsoninfo[0]["grupos"].push({"ruta":rutaas, "modulos":{"fundamentos de programacion": ["introduccion a la algoritmia", "PSeint", "Python"],
+                                                                                        "programacion web": ["HTML", "CSS", "booststrap"],
+                                                                                        "programacion formal":num1,
+                                                                                        "bases de datos":[num2,num3],
+                                                                                        "backend":[num4,num5]}, "nombres":nuevonombre,"fecha de inicio":fechaI,"fecha de finalizacion":fechaF,"salon de entrenamiento":escoje, "grupo":[]})
+                                    let cambio=prompt("SE HA CREADO LA RUTA CON EXITO \n crear otra ruta: (si) volver al menu: preciona enter")
+                                    if (cambio!="si"){
+                                        yo=false
+                                    }
+                                    else{
+                                        console.log("ya se alcanzó el maximo de rutas que se pueden crear")
+                                        yo=false
+                                    }
+                                
+                    
+                }
+                                else{
+                                    console.log("esta aula no esta disponible o lo escribiste mal")
+                                }
+                            }   menucoordinador() 
+                                yuju=false
+                                yo=false 
+                                esoo=true
+                            
+                           
+                        }
+                       
+                         
+                    }
+                    
+                }
+            }   
+        }    
             if(opci.toLowerCase()==5){
                 console.clear()
+                console.log("::::::ASIGNACIÖN DE RUTA:::::::::")
                 console.log("")
-                console.log("5 asignar rutas de entrenamiento a los traniers");
+                ole=true
+                while (ole==true){
+                    for (i in Jsoninfo[0]["trainers"]){
+                        if (i["ruta"].length<4){
+                            console.log("")
+                            console.log("--------------------------------")
+                            console.log("id:  ", i["id"])
+                            console.log("nombre: ", i["nombre"])
+                            console.log("apellido", i["apellido"])
+                            console.log("--------------------------------")
+                            console.log("")
+                        }
+                        
+                    }
+                       
+                    const miau=true
+                    while (miau==true){
+                        cont=0 
+                        let seleccion=parseInt(prompt("ingresa el id del trainer al que le quieres asignar una ruta\n"))
+                        for ( let i in Jsoninfo[0]["trainers"]){
+                            if (i["ruta"].length<4 && seleccion==i["id"]){
+                                cont=1
+                                miau=false
+                            }
+                        }      
+                        if (cont==0){
+                            console.log("ingresa un id de los que muestran")
+                        }
+                    }
+                        
+                    if (cont==1){
+                        listarutas=[]
+                        for( let a of Jsoninfo[0]["grupos"]){
+                            rutacont=0
+                            for( i in Jsoninfo[0]["trainers"]){
+                                for(z of i["ruta"].length){
+                                    if (i["ruta"][z]==a["ruta"]){
+                                        rutacont=1 
+                                    }
+                                }
+                            }         
+                            if (rutacont==0){
+                                console.log("ruta: ", a["ruta"])
+                                listarutas.push(a["ruta"])
+                            }
+                                
+                        }
+                    } 
+                        if (listarutas.length>0){
+                            for(x in Jsoninfo[0]["trainers"]){
+                                if (x["id"]==seleccion){
+                                    piece=true
+                                    while(piece==true){
+                                        son=0
+                                        qwerty=prompt("escoje una ruta:  ")
+                                        for( m in listarutas.length){
+                                            if (listarutas[m]==qwerty){
+                                                son=1
+                                                piece=false
+                                            }
+                                                
+                                            if (son==0){
+                                                console.log("esta ruta no esta disponible")
+                                                console.log("ingresa una ruta de las que se mostraron")
+                                            }
+                                                
+                                        }
+                                           
+                                    
+                                    for( l in listarutas.length)
+                                        listarutas.pop(l) 
+                                    }
+                                    x["ruta"].push(qwerty)
+                                        console.log("ruta agregada con exito")
+                                        let pregun=prompt("quieres hacer otro cambio (si)\n si no quieres preciona enter\n")
+                                        if(pregun!="si"){
+                                            ole=False
+                                        }
+                                        
+                                }
+                                    
+                            }
+                        }
+                            
+                                
+                }
+                    
+                menucoordinador()
             };
             if(opci.toLowerCase()==6){
                 console.clear() 
